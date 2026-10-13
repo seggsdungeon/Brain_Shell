@@ -34,10 +34,10 @@ QtObject {
         root.mode = m
         root.busy = true
 
-        if      (m === "quiet") _proc.command = ["sh", "-c", "timeout 5 nbfc set -s 30"]
-        else if (m === "max")   _proc.command = ["sh", "-c", "timeout 5 nbfc set -s 100"]
-        else                    _proc.command = ["sh", "-c", "timeout 5 nbfc set -a"]
-
+        if      (m === "quiet") _proc.command = ["sh", "-c", "timeout 5 sudo -n /run/current-system/sw/bin/fan-mode quiet"]
+        else if (m === "max")   _proc.command = ["sh", "-c", "timeout 5 sudo -n /run/current-system/sw/bin/fan-mode max"]
+        else                    _proc.command = ["sh", "-c", "timeout 5 sudo -n /run/current-system/sw/bin/fan-mode auto"]
+    
         _proc.running = false
         _proc.running = true
     }
